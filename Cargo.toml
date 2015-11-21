@@ -1,0 +1,13 @@
+[package]
+name = "piston_nphysics"
+version = "0.1.0"
+authors = ["koboldthegreat"]
+
+[dependencies]
+piston_window = "*"
+nalgebra = "*"
+ncollide = "*"
+
+[dependencies.nphysics]
+features = [ "2df64" ]
+git = "https://github.com/sebcrozet/nphysics"
