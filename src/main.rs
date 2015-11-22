@@ -79,7 +79,7 @@ impl Game {
 
     pub fn update(&mut self, upd: UpdateArgs) {
         self.timer += upd.dt;
-        self.world.step(upd.dt * 4.0);
+        self.world.step(4.0 * upd.dt);
     }
 
     pub fn render(&self, c: Context, g: &mut G2d) {
@@ -128,7 +128,7 @@ fn main() {
 
             });
             let pos = nalgebra::translation(game.cubes[game.cubes.len() - 1].body.borrow().position());
-            game.cubes[game.cubes.len() - 1].body.borrow_mut().append_translation(&Vec2::new(cursor[0] - pos.x, cursor[1]  - pos.y));
+            game.cubes[game.cubes.len() - 1].body.borrow_mut().set_lin_vel(Vec2::new((cursor[0] - pos.x) * 10.0 , (cursor[1]  - pos.y) * 10.0));
             game.cubes[game.cubes.len() - 1].body.borrow_mut().set_rotation(Vec1::new(0.0));
 
             match e.event {
